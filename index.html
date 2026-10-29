@@ -1,0 +1,400 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4=w240-h480-rw">
+    <title>mObywatel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+</head>
+<body>
+    <img src="https://play-lh.googleusercontent.com/_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4" class="logo">
+    <p class="logo_text">Obywatel CoCoLInI</p>
+
+    <p class="warning">JP</p>
+
+<p class="warning">Changelog:<br> Dodano mLegitymację (dostępna na pulpicie) <br> Częściowy lifting graficzny pod wersję mObywatela 4.87.0 <br> Dodano walidację numerów PESEL, od teraz cyfra kontrolna będzie się zgadzała. <br> Naprawiono błędy uniemożliwiające zmianę płci. </p>
+    <div class="guide_holder">
+        <div class="top_holder">
+            <p class="guide_title">Instrukcja</p>
+            <img class="arrow" src="./assets/images/arrow.png">
+        </div>
+        <div class="guide_text">
+            <span style="font-size: 17px; font-weight: 500;">Dla systemu IOS:</span><br>
+            <ul>
+                <li>Upewnij się, że używasz przeglądarki Safari</li>
+                <li>Uzupełnij dane i kliknij wejdź</li>
+                <li>Naciśnij udostępnij -> Do Ekranu głównego</li>
+            </ul>
+            <span style="font-size: 17px; font-weight: 500;">Dla systemu Android:</span>
+            <ul>
+                <li>Upewnij się, że używasz przeglądarki Google lub Chrome</li>
+                <li>Uzupełnij dane i kliknij wejdź</li>
+                <li>Naciśnij 3 kropki -> Dodaj do ekranu głównego</li>
+            </ul>
+        </div>
+    </div>
+
+<div class="imgdrop">
+    <div class="imgdrop_logo">
+        <div class="imgdrop_icon">ID</div>
+        <div>
+            <h2>IMG DROP</h2>
+            <p>Wklej link i pokaż zdjęcie</p>
+        </div>
+    </div>
+
+    <div class="imgdrop_box">
+        <div class="imgdrop_symbol">↗</div>
+        <label for="imgdrop_url">LINK DO ZDJĘCIA</label>
+
+        <input
+            type="url"
+            id="imgdrop_url"
+            placeholder="https://i.imgur.com/obraz.jpg"
+        >
+
+        <button type="button" id="imgdrop_btn">
+            POKAŻ ZDJĘCIE
+        </button>
+
+        <p class="imgdrop_error" id="imgdrop_error"></p>
+
+        <div class="imgdrop_preview" id="imgdrop_preview">
+            <img id="imgdrop_image" alt="Podgląd zdjęcia">
+        </div>
+    </div>
+
+    <p class="imgdrop_footer">IMG DROP · IMAGE PREVIEW</p>
+</div>
+
+<style>
+.imgdrop {
+    max-width: 480px;
+    margin: 20px auto;
+    padding: 24px;
+    background: #101014;
+    color: #f5f5f7;
+    border: 1px solid #292932;
+    border-radius: 18px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.imgdrop * {
+    box-sizing: border-box;
+}
+
+.imgdrop_logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 25px;
+}
+
+.imgdrop_icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    box-shadow: 0 0 22px #8b5cf633;
+}
+
+.imgdrop_logo h2 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.imgdrop_logo p {
+    margin: 5px 0 0;
+    color: #9999aa;
+    font-size: 12px;
+}
+
+.imgdrop_box {
+    padding: 20px;
+    border: 1px solid #30303c;
+    border-radius: 14px;
+    background: #17171e;
+}
+
+.imgdrop_symbol {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #292039;
+    color: #c084fc;
+    font-size: 26px;
+}
+
+.imgdrop_box label {
+    display: block;
+    margin-bottom: 9px;
+    color: #c4b5fd;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+#imgdrop_url {
+    width: 100%;
+    padding: 13px;
+    color: white;
+    background: #101014;
+    border: 1px solid #393945;
+    border-radius: 9px;
+    outline: none;
+    font-size: 13px;
+}
+
+#imgdrop_url:focus {
+    border-color: #a855f7;
+}
+
+#imgdrop_btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 13px;
+    border: 0;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #9333ea, #6366f1);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#imgdrop_btn:hover {
+    filter: brightness(1.15);
+}
+
+.imgdrop_error {
+    color: #fb7185;
+    font-size: 12px;
+}
+
+.imgdrop_preview {
+    display: none;
+    margin-top: 18px;
+    overflow: hidden;
+    border: 1px solid #393945;
+    border-radius: 10px;
+}
+
+.imgdrop_preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.imgdrop_footer {
+    margin: 18px 0 0;
+    text-align: center;
+    color: #666675;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+</style>
+
+<script>
+(function () {
+    const input = document.getElementById('imgdrop_url');
+    const button = document.getElementById('imgdrop_btn');
+    const image = document.getElementById('imgdrop_image');
+    const preview = document.getElementById('imgdrop_preview');
+    const error = document.getElementById('imgdrop_error');
+
+    button.addEventListener('click', function () {
+        let url = input.value.trim();
+
+        error.textContent = '';
+        preview.style.display = 'none';
+
+        if (!url) {
+            error.textContent = 'Wklej najpierw link do zdjęcia.';
+            return;
+        }
+
+        try {
+            const parsed = new URL(url);
+
+            if (!['http:', 'https:'].includes(parsed.protocol)) {
+                throw new Error('Invalid URL');
+            }
+
+            // Bezpośrednie linki do zdjęć działają najlepiej.
+            // Linki imgur.com/a/... i imgur.com/gallery/... to albumy.
+            if (/^(www\.)?imgur\.com$/i.test(parsed.hostname)) {
+                const match = parsed.pathname.match(
+                    /^\/(?:a\/|gallery\/)?([a-zA-Z0-9]+)\/?$/
+                );
+
+                if (match) {
+                    url = 'https://i.imgur.com/' + match[1] + '.jpeg';
+                }
+            }
+        } catch (e) {
+            error.textContent = 'Podaj prawidłowy link do zdjęcia.';
+            return;
+        }
+
+        image.onload = function () {
+            preview.style.display = 'block';
+            error.textContent = '';
+        };
+
+        image.onerror = function () {
+            preview.style.display = 'none';
+            error.textContent =
+                'Nie udało się wczytać zdjęcia. Wklej bezpośredni link z Imgur.';
+        };
+
+        image.src = url;
+    });
+
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') button.click();
+    });
+})();
+</script>
+        </div>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="name" class="input" placeholder="">
+        <span class="placeholder">Imię (imiona)</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="surname" class="input" placeholder="">
+        <span class="placeholder">Nazwisko</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <p class="top_info">Płeć</p>
+    <div class="selector_box">
+        <div class="selected_grid">
+            <p class="selector_text selected_text">Mężczyzna</p>
+            <img class="selected_arrow" src="./assets/images/right_arrow.png">
+        </div>
+        <div class="option_box">
+            <div class="selector_option" id="m">
+                Mężczyzna
+            </div>
+            <div class="selector_option" id="k">
+                Kobieta
+            </div>
+        </div>
+    </div>
+
+    <div class="date">
+        <p class="top_info">Data urodzenia</p>
+        <div class="date_grid">
+            <input class="date_input" id="day" placeholder="DD" type="number">
+
+            </input>
+            <input class="date_input" id="month" placeholder="MM" type="number">
+
+            </input>
+            <input class="date_input" id="year" placeholder="YYYY" type="number">
+
+            </input>
+        </div>
+        <p class="error">Wprowadź prawidłową datę</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="nationality" class="input" placeholder="">
+        <span class="placeholder">Obywatelstwo</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="familyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="fathersFamilyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe ojca</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="mothersFamilyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe matki</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <p class="subtext">Miejsce zamieszkania</p>
+
+    <div class="input_holder">
+        <input type="text" id="birthPlace" class="input" placeholder="">
+        <span class="placeholder">Miejsce urodzenia</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="countryOfBirth" class="input" placeholder="">
+        <span class="placeholder">Kraj urodzenia</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="address1" class="input" placeholder="">
+        <span class="placeholder">Ulica i numer domu</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="address2" class="input" placeholder="">
+        <span class="placeholder">Kod pocztowy</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+
+    <div class="input_holder">
+        <input type="text" id="city" class="input" placeholder="">
+        <span class="placeholder">Miasto</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+<p class="subtext">Dane legitymacji szkolnej (opcjonalne)</p>
+
+<div class="input_holder">
+    <input type="text" id="school" class="input optional" placeholder="">
+    <span class="placeholder">Szkoła</span>
+    <p class="error">To pole jest wymagane</p>
+</div>
+
+
+
+<div class="input_holder">
+    <input type="text" id="schoolAddress" class="input optional" placeholder="">
+    <span class="placeholder">Adres szkoły</span>
+    <p class="error">To pole jest wymagane</p>
+</div>
+
+<div class="input_holder">
+    <input type="text" id="schoolPhone" class="input optional" placeholder="">
+    <span class="placeholder">Telefon szkoły</span>
+    <p class="error">To pole jest wymagane</p>
+</div>
+
+<div class="input_holder">
+    <input type="text" id="director" class="input optional" placeholder="">
+    <span class="placeholder">Dyrektor</span>
+    <p class="error">To pole jest wymagane</p>
+</div>
+
+    <a class="go">wejdź</a>
+    <script src="assets/index.js"></script>
+    <script src="assets/manifest.js"></script>
+</body>
